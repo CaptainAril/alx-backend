@@ -27,4 +27,5 @@ class FIFOCache(BaseCaching):
         """Get an item from cache"""
         if key and key in self.cache_data.keys():
             return self.cache_data[key]
-        return None
+        else:
+            return None
