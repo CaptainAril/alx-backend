@@ -18,10 +18,10 @@ class FIFOCache(BaseCaching):
         """Add an item in cache"""
         if key and item:
             self.cache_data[key] = item
-        if len(self.cache_data) > self.MAX_ITEMS:
-            discard_key = next(iter(self.cache_data))
-            del (self.cache_data[discard_key])
-            print("DISCARD: ", discard_key)
+            if len(self.cache_data) > self.MAX_ITEMS:
+                discard_key = next(iter(self.cache_data))
+                del (self.cache_data[discard_key])
+                print("DISCARD: ", discard_key)
 
     def get(self, key):
         """Get an item from cache"""
