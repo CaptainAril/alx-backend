@@ -2,7 +2,7 @@
 """Set up for a basic Flask app."""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 
 app = Flask(__name__)
 
@@ -18,16 +18,19 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@babel.localselector
+# @babel.localselector
 def get_locale():
     """function that determines the best match with supported languages."""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
+babel.init_app(app, locale_selector=get_locale)
+
+
 @app.route('/')
 def hello():
     """renders templet `0-index.html`."""
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == '(__main__)':
