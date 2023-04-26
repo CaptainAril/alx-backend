@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Set up for a basic Flask app."""
-
+"""Basic Flask app"""
 from flask import Flask, render_template
 
+
 app = Flask(__name__)
+app.debug = True
 
 
 @app.route('/')
-def hello():
-    """renders templet `0-index.html`."""
+def index():
+    """view function for root route
+
+    Returns:
+        html: homepage
+    """
     return render_template('0-index.html')
 
 
-if __name__ == '(__main__)':
+if __name__ == '__main__':
     app.run()
