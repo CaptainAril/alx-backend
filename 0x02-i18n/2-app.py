@@ -18,16 +18,16 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@babel.localselector
-def get_locale():
-    """function that determines the best match with supported languages."""
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 @app.route('/')
 def hello():
     """renders templet `0-index.html`."""
     return render_template('2-index.html')
+
+
+@babel.localselector
+def get_locale():
+    """function that determines the best match with supported languages."""
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '(__main__)':
