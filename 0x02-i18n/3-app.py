@@ -29,7 +29,7 @@ babel.init_app(app, locale_selector=get_locale)
 
 @app.route('/')
 def hello():
-    """renders templet `0-index.html`."""
+    """renders templet `3-index.html`."""
     return render_template('3-index.html')
 
 
